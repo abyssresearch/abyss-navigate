@@ -37,7 +37,6 @@ int main(void) {
   unsigned char i = 0;
 
   grid[s.source] = 1;
-  wsp_navigate(&s);
 
   while (s.source != s.destination) {
     wsp_navigate(&s);

@@ -87,10 +87,10 @@ void wsp_navigate(struct wsp_navigate_s *s) {
         }
       }
     }
-  } else {
-    s->source += s->source_step;
-    s->source_x += s->source_x_step;
-    s->source_y += s->source_y_step;
-    s->repetitions_count--;
   }
+
+  s->source += s->source_step;
+  s->source_x += s->source_x_step;
+  s->source_y += s->source_y_step;
+  s->repetitions_count--;
 }
