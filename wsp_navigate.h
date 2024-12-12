@@ -6,18 +6,28 @@ struct wsp_navigate_s {
   unsigned long grid_height;
   unsigned long source;
   unsigned long destination;
-  long source_step;
+  long increment;
+  long increment_bottom_left;
+  long increment_bottom_right;
+  long increment_top_center;
+  long increment_top_left;
+  long increment_top_right;
+  char increment_x;
+  char increment_y;
   unsigned long source_x;
   unsigned long source_y;
   unsigned long destination_x;
   unsigned long destination_y;
-  char source_x_step;
-  char source_y_step;
   unsigned long repetitions_count;
-  unsigned char has_source_coordinates;
-  unsigned char has_destination_coordinates;
 };
 
-void wsp_navigate(struct wsp_navigate_s *s);
+void wsp_navigate_initialize_bounds(unsigned long width, unsigned long height,
+                                    struct wsp_navigate_s *s);
+
+void wsp_navigate_initialize_points(unsigned long source,
+                                    unsigned long destination,
+                                    struct wsp_navigate_s *s);
+
+void wsp_navigate_increment(struct wsp_navigate_s *s);
 
 #endif

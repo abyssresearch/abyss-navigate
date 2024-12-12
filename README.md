@@ -2,7 +2,7 @@
 © 2024 William Stafford Parsons
 
 ## About
-WSP-Navigate is a grid step navigation calculation algorithm as a substantial improvement to all similar algorithms for navigating rectangular grids in a 2D plane.
+WSP-Navigate is a grid navigation increment calculation algorithm as a substantial improvement to all similar algorithms for navigating rectangular grids in a 2D plane.
 
 Read more [here](https://williamstaffordparsons.github.io/wsp-navigate/).
 
@@ -12,16 +12,7 @@ Read more [here](https://williamstaffordparsons.github.io/wsp-navigate/).
 #include "wsp_navigate.h"
 
 int main(void) {
-  struct wsp_navigate_s s = {
-    .grid_width = 10,
-    .grid_height = 10,
-    .source = 0,
-    .destination = 95,
-    .source_step = 0,
-    .repetitions_count = 0,
-    .has_source_coordinates = 0,
-    .has_destination_coordinates = 0
-  };
+  struct wsp_navigate_s s;
   unsigned char grid[100] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -36,10 +27,12 @@ int main(void) {
   };
   unsigned char i = 0;
 
+  wsp_navigate_initialize_bounds(10, 10, &s);
+  wsp_navigate_initialize_points(0, 95, &s);
   grid[s.source] = 1;
 
   while (s.source != s.destination) {
-    wsp_navigate(&s);
+    wsp_navigate_increment(&s);
     grid[s.source] = 3;
   }
 
