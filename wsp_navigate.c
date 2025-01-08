@@ -1,6 +1,7 @@
 #include "wsp_navigate.h"
 
-void wsp_navigate_initialize_bounds(unsigned long width, unsigned long height,
+void wsp_navigate_initialize_bounds(const unsigned long width,
+                                    const unsigned long height,
                                     struct wsp_navigate_s *s) {
   s->grid_width = width;
   s->grid_height = height;
@@ -11,8 +12,8 @@ void wsp_navigate_initialize_bounds(unsigned long width, unsigned long height,
   s->increment_top_right = 1 - width;
 }
 
-void wsp_navigate_initialize_points(unsigned long source,
-                                    unsigned long destination,
+void wsp_navigate_initialize_points(const unsigned long source,
+                                    const unsigned long destination,
                                     struct wsp_navigate_s *s) {
   s->source = source;
   s->destination = destination;

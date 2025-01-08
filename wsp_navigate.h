@@ -21,11 +21,12 @@ struct wsp_navigate_s {
   unsigned long repetitions_count;
 };
 
-void wsp_navigate_initialize_bounds(unsigned long width, unsigned long height,
+void wsp_navigate_initialize_bounds(const unsigned long width,
+                                    const unsigned long height,
                                     struct wsp_navigate_s *s);
 
-void wsp_navigate_initialize_points(unsigned long source,
-                                    unsigned long destination,
+void wsp_navigate_initialize_points(const unsigned long source,
+                                    const unsigned long destination,
                                     struct wsp_navigate_s *s);
 
 void wsp_navigate_increment(struct wsp_navigate_s *s);
