@@ -1,8 +1,8 @@
-#include "wsp_navigate.h"
+#include "abyss_navigate.h"
 
-void wsp_navigate_initialize_bounds(const unsigned long width,
-                                    const unsigned long height,
-                                    struct wsp_navigate_s *s) {
+void abyss_navigate_initialize_bounds(const unsigned long width,
+                                      const unsigned long height,
+                                      struct abyss_navigate_s *s) {
   s->grid_width = width;
   s->grid_height = height;
   s->increment_bottom_left = width - 1;
@@ -12,9 +12,9 @@ void wsp_navigate_initialize_bounds(const unsigned long width,
   s->increment_top_right = 1 - width;
 }
 
-void wsp_navigate_initialize_points(const unsigned long source,
-                                    const unsigned long destination,
-                                    struct wsp_navigate_s *s) {
+void abyss_navigate_initialize_points(const unsigned long source,
+                                      const unsigned long destination,
+                                      struct abyss_navigate_s *s) {
   s->source = source;
   s->destination = destination;
   s->increment = 0;
@@ -25,7 +25,7 @@ void wsp_navigate_initialize_points(const unsigned long source,
   s->repetitions_count = 0;
 }
 
-void wsp_navigate_increment(struct wsp_navigate_s *s) {
+void abyss_navigate_increment(struct abyss_navigate_s *s) {
   if (s->repetitions_count == 0) {
     if (s->source_x == s->destination_x) {
       s->increment_x = 0;
